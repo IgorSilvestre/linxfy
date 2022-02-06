@@ -61,7 +61,7 @@ varConfirm=""
 while [ "$varConfirm" != "s" ]
 do
     echo "E agora a tua senha:" 
-    read varPlatUser
+    read varPlatPassword
 
   
     echo "Confirma a senha $varPlatPassword (s/n)?"
@@ -77,14 +77,14 @@ sudo apt upgrade -y
 
 sudo apt autoremove -y
 
-sudo apt install jq vim git zsh curl build-essential htop -y
+sudo apt install jq vim git zsh curl build-essential htop npm nodejs -y
 
 # install oh-my-zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 
-cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+cp -v ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
-echo zsh > ~/.bashrc
+echo "zsh" > ~/.bashrc
 
 # install pritunl - vpn
 
@@ -95,17 +95,6 @@ EOF
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7568D9BB55FF9E5287D586017AE645C0CF8E292A
 sudo apt-get update
 sudo apt-get install pritunl-client-electron -y
-
-# install nvm - nodejs
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-
-echo "
-export NVM_DIR="\$HOME/.nvm"
-[ -s "\$NVM_DIR/nvm.sh" ] && \. "\$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "\$NVM_DIR/bash_completion" ] && \. "\$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-" > ~/.zshrc
-
-nvm install 10
 
 # DOCKER CONFIG -----------------------
 # install docker
@@ -180,12 +169,7 @@ export PLAT_USER=$varPlatUser
 export PLAT_PASSWORD=$varPlatPassword
 " > ~/.zshrc
 
-source .zshrc
-
 # end of script
 echo "------------------"
 figlet "FIM"
-echo "
-Reiniciando em 10 segundos para mudanças fazerem efeito (CTRL + C para cancelar)"
-sleep 10
-reboot
+zsh
