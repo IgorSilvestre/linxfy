@@ -79,6 +79,10 @@ sudo apt autoremove -y
 
 sudo apt install jq vim git zsh curl build-essential htop npm nodejs -y
 
+# config git
+git config --global user.name "$varGitUserName"
+git config --global user.email "$varGitUserEmail"
+
 # install oh-my-zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 
@@ -134,10 +138,6 @@ sudo snap install code --classic
 # creating ssh key
 yes "" | ssh-keygen -t ed25519 -C \"$varGitUserEmail\"
 ssh-add ~/.ssh/id_ed25519
-
-# config git
-git config --global user.name "$varGitUserName"
-git config --global user.email "$varGitUserEmail"
 
 # PART 3
 # add ssh-key to github
