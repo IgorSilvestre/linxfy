@@ -96,8 +96,6 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7568D9BB55FF9E528
 sudo apt-get update
 sudo apt-get install pritunl-client-electron -y
 
-# CONFIGURE #
-
 # install nvm - nodejs
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 
@@ -148,6 +146,9 @@ sudo snap install code --classic
 yes "" | ssh-keygen -t ed25519 -C \"$varGitUserEmail\"
 ssh-add ~/.ssh/id_ed25519
 
+# config git
+git config --global user.name "$varGitUserName"
+git config --global user.email "$varGitUserEmail"
 
 # PART 3
 # add ssh-key to github
