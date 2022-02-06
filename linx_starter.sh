@@ -172,4 +172,7 @@ export PLAT_PASSWORD=$varPlatPassword
 # end of script
 echo "------------------"
 figlet "FIM"
+echo "
+Entrando no zsh em 5 segundos"
+sleep 5
 zsh
