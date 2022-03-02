@@ -129,8 +129,8 @@ docker-compose --version
 # install slack via snap
 sudo snap install slack --classic
 
-# install discord via snap
-sudo snap install discord
+# install discord via apt
+sudo apt install discord
 
 # install vscode via snap
 sudo snap install code --classic
@@ -147,8 +147,9 @@ Agora chegou o momento que eu vou precisar da tua ajuda! A gente precisa adicion
 "
 cat ~/.ssh/id_ed25519.pub
 echo "
-Segue esse passo-a-passo aqui que ele te ensina como faz: (pode começar a partir do segundo passo, o primeiro é só pegar essa chave aqui de cima, ja fui adiantando pra ti) 
+Segue esse passo-a-passo aqui que ele te ensina como faz: (pode começar a partir do segundo passo, o primeiro é só pegar essa linha aqui de cima, ja fui adiantando pra ti) 
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+echo "PELO AMOR DE DEUS, NÃO APERTA CTRL + C, COPIAR É CTRL + SHIFT + C"
 
 Aperta enter quando terminar
 "
