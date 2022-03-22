@@ -18,56 +18,76 @@ Terminando, vai estar tudo certo e podes começar a trabalhar!
 
 # PART 1 - GET INFORMATION #
 figlet "PARTE 1 - Coletando dados"
-# git user.name
-varConfirm=""
-while [ "$varConfirm" != "s" ]
-do
-    echo "Para eu configurar o git, me diz qual nome queres que eu use, lembra, esse nome vai aparecer para as outras pessoas da empresa poderem te reconhecer, geralmente usam o primeiro e último nome: "
-    read varGitUserName
 
-  
-    echo "Confirma o nome $varGitUserName (s/n)?"
+
+
+gitConfirm=""
+while [ "$gitConfirm" != "s" || "$gitConfirm" != "n" ]
+do
+    echo "Você ja tem uma conta no github? (s/n)"
     read varConfirm
 done
-
-# git user.email
-varConfirm=""
-while [ "$varConfirm" != "s" ]
+if [ "$gitConfirm" == "s" ]
 do
-    echo "Para eu configurar o git, me diz qual o email da tua conta:"
-    read varGitUserEmail
+    # git user.name
+    varConfirm=""
+    while [ "$varConfirm" != "s" ]
+    do
+        echo "Para eu configurar o git, me diz qual nome queres que eu use, lembra, esse nome vai aparecer para as outras pessoas da empresa poderem te reconhecer, geralmente usam o primeiro e último nome: "
+        read varGitUserName
 
-  
-    echo "Confirma o email $varGitUserEmail (s/n)?"
-    read varConfirm
+    
+        echo "Confirma o nome $varGitUserName (s/n)?"
+        read varConfirm
+    done
+
+    # git user.email
+    varConfirm=""
+    while [ "$varConfirm" != "s" ]
+    do
+        echo "Para eu configurar o git, me diz qual o email da tua conta:"
+        read varGitUserEmail
+
+    
+        echo "Confirma o email $varGitUserEmail (s/n)?"
+        read varConfirm
+    done
 done
-
-# platform user
-varConfirm=""
-while [ "$varConfirm" != "s" ]
+###############
+platConfirm=""
+while [ "$platConfirm" != "s" || "$platConfirm" != "n" ]
 do
-    echo "Vou configurar o plat pra ti, me passa o teu usuário, geralmente é algo assim: joao.pereira
-    Qual o teu:
-    " 
-    read varPlatUser
-
-  
-    echo "Confirma o usuário $varPlatUser (s/n)?"
-    read varConfirm
+    echo "Você ja tem uma conta no platform? (s/n)"
+    read platConfirm
 done
-
-#platform password
-varConfirm=""
-while [ "$varConfirm" != "s" ]
+if [ "$platConfirm" == "s" ]
 do
-    echo "E agora a tua senha:" 
-    read varPlatPassword
+    # platform user
+    varConfirm=""
+    while [ "$varConfirm" != "s" ]
+    do
+        echo "Vou configurar o plat pra ti, me passa o teu usuário, geralmente é algo assim: joao.pereira
+        Qual o teu:
+        " 
+        read varPlatUser
 
-  
-    echo "Confirma a senha $varPlatPassword (s/n)?"
-    read varConfirm
+    
+        echo "Confirma o usuário $varPlatUser (s/n)?"
+        read varConfirm
+    done
+
+    #platform password
+    varConfirm=""
+    while [ "$varConfirm" != "s" ]
+    do
+        echo "E agora a tua senha:" 
+        read varPlatPassword
+
+    
+        echo "Confirma a senha $varPlatPassword (s/n)?"
+        read varConfirm
+    done
 done
-
 # PART 2 - installing
 figlet "PARTE 2 - Instalando"
 
@@ -79,9 +99,12 @@ sudo apt autoremove -y
 
 sudo apt install jq vim git zsh curl build-essential htop npm nodejs -y
 
-# config git
-git config --global user.name "$varGitUserName"
-git config --global user.email "$varGitUserEmail"
+if [ "$gitConfirm" ==  "s" ]
+do
+    # config git
+    git config --global user.name "$varGitUserName"
+    git config --global user.email "$varGitUserEmail"
+done
 
 # install oh-my-zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
@@ -135,40 +158,47 @@ sudo apt install discord
 # install vscode via snap
 sudo snap install code --classic
 
-# creating ssh key
-yes "" | ssh-keygen -t ed25519 -C \"$varGitUserEmail\"
-ssh-add ~/.ssh/id_ed25519
+#configure git in github
+if [ "$gitConfirm" ==  "s" ]
+do
+    # creating ssh key
+    yes "" | ssh-keygen -t ed25519 -C \"$varGitUserEmail\"
+    ssh-add ~/.ssh/id_ed25519 #CHANGE TO SHA256
 
-# PART 3
-# add ssh-key to github
-figlet "PARTE 3 - Trabalhando em equipe"
-echo "----------------------------------------------
-Agora chegou o momento que eu vou precisar da tua ajuda! A gente precisa adicionar essa chave ssh aqui de baixo no github:
-"
-cat ~/.ssh/id_ed25519.pub
-echo "
-Segue esse passo-a-passo aqui que ele te ensina como faz: (pode começar a partir do segundo passo, o primeiro é só pegar essa linha aqui de cima, ja fui adiantando pra ti) 
-https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
-echo "PELO AMOR DE DEUS, NÃO APERTA CTRL + C, COPIAR É CTRL + SHIFT + C"
+    # PART 3
+    # add ssh-key to github
+    figlet "PARTE 3 - Trabalhando em equipe"
+    echo "----------------------------------------------
+    Agora chegou o momento que eu vou precisar da tua ajuda! A gente precisa adicionar essa chave ssh aqui de baixo no github:
+    "
+    cat ~/.ssh/id_ed25519.pub
+    echo "
+    Segue esse passo-a-passo aqui que ele te ensina como faz: (pode começar a partir do segundo passo, o primeiro é só pegar essa linha aqui de cima, ja fui adiantando pra ti) 
+    https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+    PELO AMOR DE DEUS, NÃO APERTA CTRL + C, COPIAR É CTRL + SHIFT + C
 
-Aperta enter quando terminar
-"
-read
+    Aperta enter quando terminar
+    "
+    read
+done
 
 #install platform
-mkdir ~/workspace
-cd ~/workspace
-git clone git@github.com:chaordic/platform-api-tools.git
-sudo ln -s ~/workspace/platform-api-tools/plat-get-client /bin
-sudo ln -s ~/workspace/platform-api-tools/plat-update-client /bin
+if [ "$platConfirm" == "s" ]
+do
+    mkdir ~/workspace
+    cd ~/workspace
+    git clone git@github.com:chaordic/platform-api-tools.git
+    sudo ln -s ~/workspace/platform-api-tools/plat-get-client /bin
+    sudo ln -s ~/workspace/platform-api-tools/plat-update-client /bin
 
-echo "
-export PLAT_HOME=/opt/platform-api-tools/
-export PATH=\$PATH:\$PLAT_HOME
-# Credentials
-export PLAT_USER=$varPlatUser
-export PLAT_PASSWORD=$varPlatPassword
-" > ~/.zshrc
+    echo "
+    export PLAT_HOME=/opt/platform-api-tools/
+    export PATH=\$PATH:\$PLAT_HOME
+    # Credentials
+    export PLAT_USER=$varPlatUser
+    export PLAT_PASSWORD=$varPlatPassword
+    " > ~/.zshrc
+done
 
 # end of script
 echo "------------------"
