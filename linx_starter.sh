@@ -97,7 +97,11 @@ sudo apt upgrade -y
 
 sudo apt autoremove -y
 
-sudo apt install jq vim git zsh curl build-essential htop npm nodejs -y
+sudo apt install jq vim git zsh curl build-essential htop -y
+
+# install nvm
+sudo apt install curl 
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 
 if [ "$gitConfirm" ==  "s" ]
 do
@@ -162,8 +166,10 @@ sudo snap install code --classic
 if [ "$gitConfirm" ==  "s" ]
 do
     # creating ssh key
-    yes "" | ssh-keygen -t ed25519 -C \"$varGitUserEmail\"
-    ssh-add ~/.ssh/id_ed25519 #CHANGE TO SHA256
+    yes "" | ssh-keygen
+    sudo chmod 600 ~/.ssh/id_rsa
+    sudo chmod 644 ~/.ssh/id_rsa.pub
+    ssh-add
 
     # PART 3
     # add ssh-key to github
@@ -171,7 +177,7 @@ do
     echo "----------------------------------------------
     Agora chegou o momento que eu vou precisar da tua ajuda! A gente precisa adicionar essa chave ssh aqui de baixo no github:
     "
-    cat ~/.ssh/id_ed25519.pub
+    cat ~/.ssh/id_rsa.pub
     echo "
     Segue esse passo-a-passo aqui que ele te ensina como faz: (pode começar a partir do segundo passo, o primeiro é só pegar essa linha aqui de cima, ja fui adiantando pra ti) 
     https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
