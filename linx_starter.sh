@@ -157,6 +157,9 @@ sudo usermod -aG docker \$USER
 newgrp docker
 #----------------------------------
 
+# install microsoft teams
+cd ~/Downloads && wget -O teams.deb https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.5153_amd64.deb && sudo apt install ./teams.deb
+
 # install slack via snap
 sudo snap install slack --classic
 
