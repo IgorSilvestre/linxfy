@@ -100,7 +100,6 @@ sudo apt autoremove -y
 sudo apt install jq vim git zsh curl build-essential htop -y
 
 # install nvm
-sudo apt install curl 
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 
 if [ "$gitConfirm" ==  "s" ]
@@ -111,7 +110,7 @@ do
 done
 
 # install oh-my-zsh
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+yes "y" | git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 
 cp -v ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
