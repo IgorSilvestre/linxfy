@@ -15,11 +15,8 @@ Prazer em te conhecer $varName, vou te explicar como eu funciono, consisto de tr
 3. Por último te explicar passo-a-passo e fornecer links para as partes que eu não consigo fazer sozinho - nessa parte conto contigo para me ajudar!
 Terminando, vai estar tudo certo e podes começar a trabalhar!
 "
-
 # PART 1 - GET INFORMATION #
 figlet "PARTE 1 - Coletando dados"
-
-
 
 gitConfirm=""
 while [ "$gitConfirm" != "s" || "$gitConfirm" != "n" ]
@@ -92,11 +89,8 @@ done
 figlet "PARTE 2 - Instalando"
 
 ## INSTALL MINIMAL ##
-
 sudo apt upgrade -y
-
 sudo apt autoremove -y
-
 sudo apt install jq vim git zsh curl build-essential htop -y
 
 # install nvm
@@ -113,13 +107,10 @@ done
 
 # install oh-my-zsh
 yes "y" | git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-
 cp -v ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-
 echo "zsh" > ~/.bashrc
 
 # install pritunl - vpn
-
 sudo tee /etc/apt/sources.list.d/pritunl.list << EOF
 deb https://repo.pritunl.com/stable/apt focal main
 EOF
@@ -137,7 +128,6 @@ sudo apt-get install \
     lsb-release
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -151,12 +141,11 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 docker-compose --version
-
+#
 sudo groupadd docker
 sudo usermod -aG docker \$USER
 newgrp docker
 #----------------------------------
-
 # install microsoft teams
 cd ~/Downloads && wget -O teams.deb https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.5153_amd64.deb && sudo apt install ./teams.deb
 
