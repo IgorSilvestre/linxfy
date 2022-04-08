@@ -153,7 +153,7 @@ cd ~/Downloads && wget -O teams.deb https://packages.microsoft.com/repos/ms-team
 sudo snap install slack --classic
 
 # install discord via apt
-sudo apt install discord
+sudo snap install discord
 
 # install vscode via snap
 sudo snap install code --classic
