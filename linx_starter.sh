@@ -141,10 +141,10 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 docker-compose --version
-#
-sudo groupadd docker
-sudo usermod -aG docker \$USER
-newgrp docker
+# needs to add this commands
+# sudo groupadd docker
+# sudo usermod -aG docker \$USER
+# newgrp docker
 #----------------------------------
 # install microsoft teams
 cd ~/Downloads && wget -O teams.deb https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.5153_amd64.deb && sudo apt install ./teams.deb
