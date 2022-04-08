@@ -95,8 +95,8 @@ sudo apt install jq vim git zsh curl build-essential htop -y
 
 # install nvm
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-nvm install node
-nvm install 10
+# nvm install node
+# nvm install 10
 
 if [ "$gitConfirm" ==  "s" ]
 do
