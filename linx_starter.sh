@@ -21,14 +21,16 @@ Terminando, vai estar tudo certo e podes começar a trabalhar!
 figlet "PARTE 1 - Coletando dados"
 
 gitConfirm=""
-while [ "$gitConfirm" != "s" || "$gitConfirm" != "n" ]; do
+while [ "$gitConfirm" != "s" || "$gitConfirm" != "n" ]
+do
     echo "Você ja tem uma conta no github? (s/n)"
     read varConfirm
 done
 if [ "$gitConfirm" == "s" ]; then
     # git user.name
     varConfirm=""
-    while [ "$varConfirm" != "s" ]; do
+    while [ "$varConfirm" != "s" ]
+    do
         echo "Para eu configurar o git, me diz qual nome queres que eu use, lembra, esse nome vai aparecer para as outras pessoas da empresa poderem te reconhecer, geralmente usam o primeiro e último nome: "
         read varGitUserName
 
@@ -39,7 +41,8 @@ if [ "$gitConfirm" == "s" ]; then
 
     # git user.email
     varConfirm=""
-    while [ "$varConfirm" != "s" ]; do
+    while [ "$varConfirm" != "s" ]
+    do
         echo "Para eu configurar o git, me diz qual o email da tua conta:"
         read varGitUserEmail
 
@@ -50,14 +53,16 @@ if [ "$gitConfirm" == "s" ]; then
 fi
 ###############
 platConfirm=""
-while [ "$platConfirm" != "s" || "$platConfirm" != "n" ]; do
+while [ "$platConfirm" != "s" || "$platConfirm" != "n" ]
+do
     echo "Você ja tem uma conta no platform? (s/n)"
     read platConfirm
 done
 if [ "$platConfirm" == "s" ]; then
     # platform user
     varConfirm=""
-    while [ "$varConfirm" != "s" ]; do
+    while [ "$varConfirm" != "s" ]
+    do
         echo "Vou configurar o plat pra ti, me passa o teu usuário, geralmente é algo assim: joao.pereira
         Qual o teu:
         " 
@@ -70,7 +75,8 @@ if [ "$platConfirm" == "s" ]; then
 
     #platform password
     varConfirm=""
-    while [ "$varConfirm" != "s" ]; do
+    while [ "$varConfirm" != "s" ]
+    do
         echo "E agora a tua senha:" 
         read varPlatPassword
 
