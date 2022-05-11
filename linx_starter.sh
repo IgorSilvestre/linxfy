@@ -26,8 +26,8 @@ do
     echo "Você ja tem uma conta no github? (s/n)"
     read varConfirm
 done
-if [ "$gitConfirm" == "s" ]
-do
+if [ "$gitConfirm" == "s" ];
+then
     # git user.name
     varConfirm=""
     while [ "$varConfirm" != "s" ]
@@ -51,7 +51,7 @@ do
         echo "Confirma o email $varGitUserEmail (s/n)?"
         read varConfirm
     done
-done
+fi
 ###############
 platConfirm=""
 while [ "$platConfirm" != "s" || "$platConfirm" != "n" ]
@@ -59,8 +59,8 @@ do
     echo "Você ja tem uma conta no platform? (s/n)"
     read platConfirm
 done
-if [ "$platConfirm" == "s" ]
-do
+if [ "$platConfirm" == "s" ];
+then
     # platform user
     varConfirm=""
     while [ "$varConfirm" != "s" ]
@@ -86,7 +86,7 @@ do
         echo "Confirma a senha $varPlatPassword (s/n)?"
         read varConfirm
     done
-done
+fi
 # PART 2 - installing
 figlet "PARTE 2 - Instalando"
 
@@ -100,12 +100,12 @@ curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 # nvm install node
 # nvm install 10
 
-if [ "$gitConfirm" ==  "s" ]
-do
+if [ "$gitConfirm" ==  "s" ];
+then
     # config git
     git config --global user.name "$varGitUserName"
     git config --global user.email "$varGitUserEmail"
-done
+fi
 
 # install oh-my-zsh
 yes "y" | git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
@@ -161,8 +161,8 @@ sudo snap install discord
 sudo snap install code --classic
 
 #configure git in github
-if [ "$gitConfirm" ==  "s" ]
-do
+if [ "$gitConfirm" ==  "s" ];
+then
     # creating ssh key
     yes "" | ssh-keygen
     sudo chmod 600 ~/.ssh/id_rsa
@@ -184,11 +184,11 @@ do
     Aperta enter quando terminar
     "
     read
-done
+fi
 
 #install platform
-if [ "$platConfirm" == "s" ]
-do
+if [ "$platConfirm" == "s" ];
+then
     mkdir ~/workspace
     cd ~/workspace
     git clone git@github.com:chaordic/platform-api-tools.git
@@ -202,7 +202,7 @@ do
     export PLAT_USER=$varPlatUser
     export PLAT_PASSWORD=$varPlatPassword
     " > ~/.zshrc
-done
+fi
 
 # end of script
 echo "------------------"
