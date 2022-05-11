@@ -20,71 +20,65 @@ Terminando, vai estar tudo certo e podes começar a trabalhar!
 # PART 1 - GET INFORMATION #
 figlet "PARTE 1 - Coletando dados"
 
-gitConfirm=""
-while [[ "$gitConfirm" != "s" || "$gitConfirm" != "n" ]]
-do
-    echo "Você ja tem uma conta no github? (s/n)"
-    read gitConfirm
-    if [ "$gitConfirm" == "s" ]; then
-        # git user.name
-        varConfirm=""
-        while [ "$varConfirm" != "s" ]
-        do
-            echo "Para eu configurar o git, me diz qual nome queres que eu use, lembra, esse nome vai aparecer para as outras pessoas da empresa poderem te reconhecer, geralmente usam o primeiro e último nome: "
-            read varGitUserName
+echo "Você ja tem uma conta no github? (s/n)"
+read gitConfirm
+if [ "$gitConfirm" == "s" ]; then
+    # git user.name
+    varConfirm=""
+    while [ "$varConfirm" != "s" ]
+    do
+        echo "Para eu configurar o git, me diz qual nome queres que eu use, lembra, esse nome vai aparecer para as outras pessoas da empresa poderem te reconhecer, geralmente usam o primeiro e último nome: "
+        read varGitUserName
 
-        
-            echo "Confirma o nome $varGitUserName (s/n)?"
-            read varConfirm
-        done
+    
+        echo "Confirma o nome $varGitUserName (s/n)?"
+        read varConfirm
+    done
 
-        # git user.email
-        varConfirm=""
-        while [ "$varConfirm" != "s" ]
-        do
-            echo "Para eu configurar o git, me diz qual o email da tua conta:"
-            read varGitUserEmail
+    # git user.email
+    varConfirm=""
+    while [ "$varConfirm" != "s" ]
+    do
+        echo "Para eu configurar o git, me diz qual o email da tua conta:"
+        read varGitUserEmail
 
-        
-            echo "Confirma o email $varGitUserEmail (s/n)?"
-            read varConfirm
-        done
-    fi
-done
+    
+        echo "Confirma o email $varGitUserEmail (s/n)?"
+        read varConfirm
+    done
+fi
+
 ###############
-platConfirm=""
-while [[ "$platConfirm" != "s" || "$platConfirm" != "n" ]]
-do
-    echo "Você ja tem uma conta no platform? (s/n)"
-    read platConfirm
-    if [ "$platConfirm" == "s" ]; then
-        # platform user
-        varConfirm=""
-        while [ "$varConfirm" != "s" ]
-        do
-            echo "Vou configurar o plat pra ti, me passa o teu usuário, geralmente é algo assim: joao.pereira
-            Qual o teu:
-            " 
-            read varPlatUser
+echo "Você ja tem uma conta no platform? (s/n)"
+read platConfirm
+if [ "$platConfirm" == "s" ]; then
+    # platform user
+    varConfirm=""
+    while [ "$varConfirm" != "s" ]
+    do
+        echo "Vou configurar o plat pra ti, me passa o teu usuário, geralmente é algo assim: joao.pereira
+        Qual o teu:
+        " 
+        read varPlatUser
 
-        
-            echo "Confirma o usuário $varPlatUser (s/n)?"
-            read varConfirm
-        done
+    
+        echo "Confirma o usuário $varPlatUser (s/n)?"
+        read varConfirm
+    done
 
-        #platform password
-        varConfirm=""
-        while [ "$varConfirm" != "s" ]
-        do
-            echo "E agora a tua senha:" 
-            read varPlatPassword
+    #platform password
+    varConfirm=""
+    while [ "$varConfirm" != "s" ]
+    do
+        echo "E agora a tua senha:" 
+        read varPlatPassword
 
-        
-            echo "Confirma a senha $varPlatPassword (s/n)?"
-            read varConfirm
-        done
-    fi
-done
+    
+        echo "Confirma a senha $varPlatPassword (s/n)?"
+        read varConfirm
+    done
+fi
+
 # PART 2 - installing
 figlet "PARTE 2 - Instalando"
 
@@ -183,8 +177,7 @@ if [ "$gitConfirm" ==  "s" ]; then
 fi
 
 #install platform
-if [ "$platConfirm" == "s" ];
-then
+if [ "$platConfirm" == "s" ]; then
     mkdir ~/workspace
     cd ~/workspace
     git clone git@github.com:chaordic/platform-api-tools.git
