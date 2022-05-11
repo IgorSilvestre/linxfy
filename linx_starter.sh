@@ -21,7 +21,7 @@ Terminando, vai estar tudo certo e podes começar a trabalhar!
 figlet "PARTE 1 - Coletando dados"
 
 gitConfirm=""
-while [ "$gitConfirm" != "s" || "$gitConfirm" != "n" ]
+while [ [ "$gitConfirm" != "s" ] || [ "$gitConfirm" != "n" ] ]
 do
     echo "Você ja tem uma conta no github? (s/n)"
     read varConfirm
@@ -53,7 +53,7 @@ if [ "$gitConfirm" == "s" ]; then
 fi
 ###############
 platConfirm=""
-while [ "$platConfirm" != "s" || "$platConfirm" != "n" ]
+while [ [ "$platConfirm" != "s" ] || [ "$platConfirm" != "n" ] ]
 do
     echo "Você ja tem uma conta no platform? (s/n)"
     read platConfirm
