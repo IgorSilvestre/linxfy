@@ -50,16 +50,14 @@ if [ "$gitConfirm" == "s" ]; then
 fi
 ###############
 platConfirm=""
-while [ "$platConfirm" != "s" || "$platConfirm" != "n" ]
-do
+while [ "$platConfirm" != "s" || "$platConfirm" != "n" ]; do
     echo "Você ja tem uma conta no platform? (s/n)"
     read platConfirm
 done
 if [ "$platConfirm" == "s" ]; then
     # platform user
     varConfirm=""
-    while [ "$varConfirm" != "s" ]
-    do
+    while [ "$varConfirm" != "s" ]; do
         echo "Vou configurar o plat pra ti, me passa o teu usuário, geralmente é algo assim: joao.pereira
         Qual o teu:
         " 
@@ -72,8 +70,7 @@ if [ "$platConfirm" == "s" ]; then
 
     #platform password
     varConfirm=""
-    while [ "$varConfirm" != "s" ]
-    do
+    while [ "$varConfirm" != "s" ]; do
         echo "E agora a tua senha:" 
         read varPlatPassword
 
