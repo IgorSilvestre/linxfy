@@ -21,17 +21,14 @@ Terminando, vai estar tudo certo e podes começar a trabalhar!
 figlet "PARTE 1 - Coletando dados"
 
 gitConfirm=""
-while [ "$gitConfirm" != "s" || "$gitConfirm" != "n" ]
-do
+while [ "$gitConfirm" != "s" || "$gitConfirm" != "n" ] do
     echo "Você ja tem uma conta no github? (s/n)"
     read varConfirm
 done
-if [ "$gitConfirm" == "s" ];
-then
+if [ "$gitConfirm" == "s" ]; then
     # git user.name
     varConfirm=""
-    while [ "$varConfirm" != "s" ]
-    do
+    while [ "$varConfirm" != "s" ] do
         echo "Para eu configurar o git, me diz qual nome queres que eu use, lembra, esse nome vai aparecer para as outras pessoas da empresa poderem te reconhecer, geralmente usam o primeiro e último nome: "
         read varGitUserName
 
@@ -42,8 +39,7 @@ then
 
     # git user.email
     varConfirm=""
-    while [ "$varConfirm" != "s" ]
-    do
+    while [ "$varConfirm" != "s" ] do
         echo "Para eu configurar o git, me diz qual o email da tua conta:"
         read varGitUserEmail
 
@@ -59,8 +55,7 @@ do
     echo "Você ja tem uma conta no platform? (s/n)"
     read platConfirm
 done
-if [ "$platConfirm" == "s" ];
-then
+if [ "$platConfirm" == "s" ]; then
     # platform user
     varConfirm=""
     while [ "$varConfirm" != "s" ]
@@ -100,8 +95,7 @@ curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 # nvm install node
 # nvm install 10
 
-if [ "$gitConfirm" ==  "s" ];
-then
+if [ "$gitConfirm" ==  "s" ]; then
     # config git
     git config --global user.name "$varGitUserName"
     git config --global user.email "$varGitUserEmail"
@@ -161,8 +155,7 @@ sudo snap install discord
 sudo snap install code --classic
 
 #configure git in github
-if [ "$gitConfirm" ==  "s" ];
-then
+if [ "$gitConfirm" ==  "s" ]; then
     # creating ssh key
     yes "" | ssh-keygen
     sudo chmod 600 ~/.ssh/id_rsa
