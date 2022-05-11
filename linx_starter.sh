@@ -19,16 +19,16 @@ Terminando, vai estar tudo certo e podes começar a trabalhar!
 figlet "PARTE 1 - Coletando dados"
 
 gitConfirm=""
-while [ "$gitConfirm" != "s" || "$gitConfirm" != "n" ]
+while [ "$gitConfirm" != "s" || "$gitConfirm" != "n" ];
 do
     echo "Você ja tem uma conta no github? (s/n)"
     read varConfirm
 done
-if [ "$gitConfirm" == "s" ]
+if [ "$gitConfirm" == "s" ];
 do
     # git user.name
     varConfirm=""
-    while [ "$varConfirm" != "s" ]
+    while [ "$varConfirm" != "s" ];
     do
         echo "Para eu configurar o git, me diz qual nome queres que eu use, lembra, esse nome vai aparecer para as outras pessoas da empresa poderem te reconhecer, geralmente usam o primeiro e último nome: "
         read varGitUserName
@@ -40,7 +40,7 @@ do
 
     # git user.email
     varConfirm=""
-    while [ "$varConfirm" != "s" ]
+    while [ "$varConfirm" != "s" ];
     do
         echo "Para eu configurar o git, me diz qual o email da tua conta:"
         read varGitUserEmail
@@ -52,16 +52,16 @@ do
 done
 ###############
 platConfirm=""
-while [ "$platConfirm" != "s" || "$platConfirm" != "n" ]
+while [ "$platConfirm" != "s" || "$platConfirm" != "n" ];
 do
     echo "Você ja tem uma conta no platform? (s/n)"
     read platConfirm
 done
-if [ "$platConfirm" == "s" ]
+if [ "$platConfirm" == "s" ];
 do
     # platform user
     varConfirm=""
-    while [ "$varConfirm" != "s" ]
+    while [ "$varConfirm" != "s" ];
     do
         echo "Vou configurar o plat pra ti, me passa o teu usuário, geralmente é algo assim: joao.pereira
         Qual o teu:
@@ -75,7 +75,7 @@ do
 
     #platform password
     varConfirm=""
-    while [ "$varConfirm" != "s" ]
+    while [ "$varConfirm" != "s" ];
     do
         echo "E agora a tua senha:" 
         read varPlatPassword
@@ -98,7 +98,7 @@ curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 # nvm install node
 # nvm install 10
 
-if [ "$gitConfirm" ==  "s" ]
+if [ "$gitConfirm" ==  "s" ];
 do
     # config git
     git config --global user.name "$varGitUserName"
@@ -129,7 +129,7 @@ sudo apt-get install \
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg]; https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 sudo apt-get update
@@ -159,7 +159,7 @@ sudo snap install discord
 sudo snap install code --classic
 
 #configure git in github
-if [ "$gitConfirm" ==  "s" ]
+if [ "$gitConfirm" ==  "s" ];
 do
     # creating ssh key
     yes "" | ssh-keygen
@@ -185,7 +185,7 @@ do
 done
 
 #install platform
-if [ "$platConfirm" == "s" ]
+if [ "$platConfirm" == "s" ];
 do
     mkdir ~/workspace
     cd ~/workspace
