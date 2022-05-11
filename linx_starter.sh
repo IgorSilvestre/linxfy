@@ -180,7 +180,7 @@ fi
 if [ "$platConfirm" == "s" ]; then
     mkdir ~/workspace
     cd ~/workspace
-    git clone git@github.com:chaordic/platform-api-tools.git
+    yes "yes" | git clone git@github.com:chaordic/platform-api-tools.git
     sudo ln -s ~/workspace/platform-api-tools/plat-get-client /bin
     sudo ln -s ~/workspace/platform-api-tools/plat-update-client /bin
 
